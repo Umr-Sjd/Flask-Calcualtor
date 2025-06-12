@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Only Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f0fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 15px;
+            font-size: 22px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: green;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-box">
+        <h2>Python Calculator</h2>
+        <form method="POST" action="/calculate">
+            <input type="text" name="expression" placeholder="Type something like 2+3*4" required>
+            <br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        {% if result %}
+            <div class="result">Result: <strong>{{ result }}</strong></div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
