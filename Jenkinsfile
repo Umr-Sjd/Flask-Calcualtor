@@ -1,28 +1,28 @@
-pipeline{
-    agent any
+at Jenkinsfile 
+pipeline {
+  agent any
 
-    stages{
-            stage('Clone Code'){
-                steps{
-                    script
-                        echo 'cloning the code ....'
-            
-                }
-        
-             }
-            stage('docker build'){
-                steps{
-                    script{
-                        dockerImage = docker.build('my-calc-app')
-                    }
-                }
-            }
-            stage{
-                steps{
-                    sh 'docker compose up -d'
-                }
-            }
+  stages {
 
+    stage('Clone Code') {
+      steps {
+        echo 'Cloning from GitHub...'
+        // Jenkins does this automatically
+      }
     }
 
-}
+    stage('Build Docker Image') {
+      steps {
+        script {
+          dockerImage = docker.build('flask-todo-app')
+        }
+      }
+    }
+
+    stage('Run Docker Compose') {
+      steps {
+        sh 'docker-compose up -d'
+      }
+    }
+  }
+}           
