@@ -11,7 +11,7 @@ pipeline {
 
     stage('Lint Python Code') {
     steps {
-        sh 'python -m py_compile app.py'
+        sh 'python -m py_compile calc.py'
        }
      }
 
