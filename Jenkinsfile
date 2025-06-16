@@ -9,6 +9,12 @@ pipeline {
       }
     }
 
+    stage('Lint Python Code') {
+    steps {
+        sh 'python -m py_compile app.py'
+       }
+     }
+
     stage('Build Docker Image') {
       steps {
         script {
